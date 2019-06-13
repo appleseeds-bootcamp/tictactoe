@@ -1,7 +1,5 @@
 let game = new Game();
 
-console.log(game);
-
 
 $(document).ready(() => {
     $(".cell").click((e) => {
@@ -10,6 +8,8 @@ $(document).ready(() => {
         let x = target.getAttribute("x");
         let y = target.getAttribute("y");
 
-        alert(`I clicked the cell ${x},${y}`)
+        game.setSignOnBoard(x, y);
+        
+        console.log(game);
     });
 });
