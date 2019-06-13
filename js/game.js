@@ -14,6 +14,8 @@ class Game {
             currentCell.sign = this.currentTurnSign;
 
             this.toggleSign();
+
+            return currentCell.sign;
         } else {
             console.log("Player clicked on occupied cell");
         }

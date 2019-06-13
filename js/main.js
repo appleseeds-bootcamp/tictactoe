@@ -8,8 +8,10 @@ $(document).ready(() => {
         let x = target.getAttribute("x");
         let y = target.getAttribute("y");
 
-        game.setSignOnBoard(x, y);
-        
-        console.log(game);
+        let currentSign = game.setSignOnBoard(x, y);
+
+        if (currentSign) {
+            target.innerHTML = currentSign;
+        }
     });
 });
