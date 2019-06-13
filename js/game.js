@@ -13,6 +13,12 @@ class Game {
         if (currentCell.sign === undefined) {
             currentCell.sign = this.currentTurnSign;
 
+            let isWinner = this.checkIfWon(x, y);
+
+            if (isWinner) {
+                alert("Win!");
+            }
+
             this.toggleSign();
 
             return currentCell.sign;
@@ -28,5 +34,31 @@ class Game {
             this.currentTurnSign = "X";
         }
     }
-}
 
+    checkIfWon(rowIndex, colIndex) {
+        return this.checkIfWonInRow(rowIndex);
+        // TODO: Uncomment this when implemented
+        // this.checkIfWonInCols();
+        // this.checkIfWonInCrosses();
+    }
+
+    checkIfWonInRow(rowIndex) {
+        let rowArray = this.board.cells[rowIndex];
+        let isWinner = rowArray.every(cell => cell.sign === this.currentTurnSign);
+        // for (let i = 0; i < rowArray.length; i++) {
+        //     if (rowArray[i].sign !== this.currentTurnSign) {
+        //         return false;
+        //     }
+        // }
+
+        return isWinner;
+    }
+
+    checkIfWonInCols(colIndex) {
+        // TODO: implement check in cols
+    }
+
+    checkIfWonInCrosses() {
+        // TODO: implement check in rows
+    }
+}
